@@ -6,6 +6,7 @@
 </head>
 <body>
 
+	<a href="notice/noticeList">Notice List</a>
 	<h1>Master World</h1>
 	<h1>Master World2</h1>
 <h1>

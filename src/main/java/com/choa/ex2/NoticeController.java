@@ -23,6 +23,13 @@ public class NoticeController {
 	@Inject //type
 	private NoticeService noticeService;
 	
+	
+	@RequestMapping(value="test")
+	public void test(){
+		System.out.println(noticeService);
+		noticeService.test();
+	}
+	
 	//List
 	@RequestMapping(value="noticeList", method=RequestMethod.GET)
 	public void noticeList(@RequestParam(defaultValue="1")Integer curPage, Model model) throws Exception{
@@ -41,8 +48,8 @@ public class NoticeController {
 	}
 	//Write
 	@RequestMapping(value="noticeWrite", method=RequestMethod.GET)
-	public void noticeWrite(){
-		
+	public void noticeWrite(Model model){
+		model.addAttribute("path", "Write");
 	}
 	//Write
 	@RequestMapping(value="noticeWrite", method=RequestMethod.POST)
@@ -64,8 +71,8 @@ public class NoticeController {
 		NoticeDTO noticeDTO = noticeService.noticeView(num);
 		
 		model.addAttribute("dto", noticeDTO);
-		
-		return "notice/noticeUpdate";
+		model.addAttribute("path", "Update");
+		return "notice/noticeWrite";
 	}
 	
 	
